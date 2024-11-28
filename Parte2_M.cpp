@@ -74,7 +74,7 @@ int main() {
 
     int result = tsp(cost);
 
-    cout << "Costo minimo con regreso: " << result << " km" << endl;
+    //cout << "Costo minimo con regreso: " << result << " km" << endl;
 
     cout << "Ruta Optima: ";
     getRoute(1, 0, n); // Reconstruir e imprimir la ruta desde la ciudad 0
