@@ -1,2 +1,2 @@
-TestMain 1 0.297049
+AllTests 1 0.146922
 ---

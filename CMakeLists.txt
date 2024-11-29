@@ -15,7 +15,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Incluir los archivos de cabecera
 include_directories(${CMAKE_SOURCE_DIR})
 
-# Añadir los archivos fuente
+# Archivos fuente principales
 set(SOURCES
     main.cpp
     edge.h
@@ -42,17 +42,20 @@ FetchContent_MakeAvailable(googletest)
 if(ENABLE_TESTING)
     enable_testing()
 
-    # Archivos fuente de pruebas
+    # Archivos de pruebas
     set(TEST_SOURCES
-        tests/test_main.cpp
+        tests/test_kruskal.cpp
+        tests/test_tsp.cpp
+        tests/test_fordFulkerson.cpp
+        tests/test_central.cpp
     )
 
-    # Crear el ejecutable de pruebas
-    add_executable(test_main ${TEST_SOURCES})
+    # Crear ejecutable de pruebas
+    add_executable(test_suite ${TEST_SOURCES})
 
     # Enlazar GoogleTest
-    target_link_libraries(test_main PRIVATE gtest gtest_main)
+    target_link_libraries(test_suite PRIVATE gtest gtest_main)
 
-    # Registrar las pruebas con CTest
-    add_test(NAME TestMain COMMAND test_main)
+    # Registrar pruebas con CTest
+    add_test(NAME AllTests COMMAND test_suite)
 endif()

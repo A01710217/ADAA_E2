@@ -184,17 +184,17 @@ main/fast:
 .PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named test_main
+# Target rules for targets named test_suite
 
 # Build rule for target.
-test_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_main
-.PHONY : test_main
+test_suite: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_suite
+.PHONY : test_suite
 
 # fast build rule for target.
-test_main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_main.dir\build.make CMakeFiles/test_main.dir/build
-.PHONY : test_main/fast
+test_suite/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/build
+.PHONY : test_suite/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -272,29 +272,101 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-tests/test_main.obj: tests/test_main.cpp.obj
-.PHONY : tests/test_main.obj
+tests/test_central.obj: tests/test_central.cpp.obj
+.PHONY : tests/test_central.obj
 
 # target to build an object file
-tests/test_main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_main.dir\build.make CMakeFiles/test_main.dir/tests/test_main.cpp.obj
-.PHONY : tests/test_main.cpp.obj
+tests/test_central.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_central.cpp.obj
+.PHONY : tests/test_central.cpp.obj
 
-tests/test_main.i: tests/test_main.cpp.i
-.PHONY : tests/test_main.i
+tests/test_central.i: tests/test_central.cpp.i
+.PHONY : tests/test_central.i
 
 # target to preprocess a source file
-tests/test_main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_main.dir\build.make CMakeFiles/test_main.dir/tests/test_main.cpp.i
-.PHONY : tests/test_main.cpp.i
+tests/test_central.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_central.cpp.i
+.PHONY : tests/test_central.cpp.i
 
-tests/test_main.s: tests/test_main.cpp.s
-.PHONY : tests/test_main.s
+tests/test_central.s: tests/test_central.cpp.s
+.PHONY : tests/test_central.s
 
 # target to generate assembly for a file
-tests/test_main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_main.dir\build.make CMakeFiles/test_main.dir/tests/test_main.cpp.s
-.PHONY : tests/test_main.cpp.s
+tests/test_central.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_central.cpp.s
+.PHONY : tests/test_central.cpp.s
+
+tests/test_fordFulkerson.obj: tests/test_fordFulkerson.cpp.obj
+.PHONY : tests/test_fordFulkerson.obj
+
+# target to build an object file
+tests/test_fordFulkerson.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_fordFulkerson.cpp.obj
+.PHONY : tests/test_fordFulkerson.cpp.obj
+
+tests/test_fordFulkerson.i: tests/test_fordFulkerson.cpp.i
+.PHONY : tests/test_fordFulkerson.i
+
+# target to preprocess a source file
+tests/test_fordFulkerson.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_fordFulkerson.cpp.i
+.PHONY : tests/test_fordFulkerson.cpp.i
+
+tests/test_fordFulkerson.s: tests/test_fordFulkerson.cpp.s
+.PHONY : tests/test_fordFulkerson.s
+
+# target to generate assembly for a file
+tests/test_fordFulkerson.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_fordFulkerson.cpp.s
+.PHONY : tests/test_fordFulkerson.cpp.s
+
+tests/test_kruskal.obj: tests/test_kruskal.cpp.obj
+.PHONY : tests/test_kruskal.obj
+
+# target to build an object file
+tests/test_kruskal.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_kruskal.cpp.obj
+.PHONY : tests/test_kruskal.cpp.obj
+
+tests/test_kruskal.i: tests/test_kruskal.cpp.i
+.PHONY : tests/test_kruskal.i
+
+# target to preprocess a source file
+tests/test_kruskal.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_kruskal.cpp.i
+.PHONY : tests/test_kruskal.cpp.i
+
+tests/test_kruskal.s: tests/test_kruskal.cpp.s
+.PHONY : tests/test_kruskal.s
+
+# target to generate assembly for a file
+tests/test_kruskal.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_kruskal.cpp.s
+.PHONY : tests/test_kruskal.cpp.s
+
+tests/test_tsp.obj: tests/test_tsp.cpp.obj
+.PHONY : tests/test_tsp.obj
+
+# target to build an object file
+tests/test_tsp.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_tsp.cpp.obj
+.PHONY : tests/test_tsp.cpp.obj
+
+tests/test_tsp.i: tests/test_tsp.cpp.i
+.PHONY : tests/test_tsp.i
+
+# target to preprocess a source file
+tests/test_tsp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_tsp.cpp.i
+.PHONY : tests/test_tsp.cpp.i
+
+tests/test_tsp.s: tests/test_tsp.cpp.s
+.PHONY : tests/test_tsp.s
+
+# target to generate assembly for a file
+tests/test_tsp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_suite.dir\build.make CMakeFiles/test_suite.dir/tests/test_tsp.cpp.s
+.PHONY : tests/test_tsp.cpp.s
 
 # Help Target
 help:
@@ -314,13 +386,22 @@ help:
 	@echo ... gtest
 	@echo ... gtest_main
 	@echo ... main
-	@echo ... test_main
+	@echo ... test_suite
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... tests/test_main.obj
-	@echo ... tests/test_main.i
-	@echo ... tests/test_main.s
+	@echo ... tests/test_central.obj
+	@echo ... tests/test_central.i
+	@echo ... tests/test_central.s
+	@echo ... tests/test_fordFulkerson.obj
+	@echo ... tests/test_fordFulkerson.i
+	@echo ... tests/test_fordFulkerson.s
+	@echo ... tests/test_kruskal.obj
+	@echo ... tests/test_kruskal.i
+	@echo ... tests/test_kruskal.s
+	@echo ... tests/test_tsp.obj
+	@echo ... tests/test_tsp.i
+	@echo ... tests/test_tsp.s
 .PHONY : help
 
 

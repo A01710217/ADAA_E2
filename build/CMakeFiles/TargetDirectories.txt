@@ -1,5 +1,5 @@
 C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build/CMakeFiles/main.dir
-C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build/CMakeFiles/test_main.dir
+C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build/CMakeFiles/test_suite.dir
 C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build/CMakeFiles/test.dir
 C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build/CMakeFiles/edit_cache.dir
 C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build/CMakeFiles/rebuild_cache.dir
