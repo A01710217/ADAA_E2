@@ -1,11 +1,49 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <algorithm> // Para std::sort
 
 //Importar la clase Punto
 #include "punto.h"
+//Importar la clase Edge
+#include "edge.h"
+//Importar la clase UnionFind
+#include "unionFind.h"
 
 using namespace std;
+
+// Comparador para ordenar aristas por peso
+//Complejidad: O(1)
+bool compareWeight(const Edge& e1, const Edge& e2) {
+    return e1.weight < e2.weight;
+}
+
+// Función principal para aplicar el algoritmo de Kruskal
+//Complejidad: O(n log n)
+vector<Edge> kruskalMST(vector<Edge>& edges, int N) {
+    //Ordenar las aristas por peso
+    sort(edges.begin(), edges.end(), compareWeight);
+    //Crear una estructura UnionFind
+    UnionFind uf(N);
+
+    //Almacenará el MST resultante
+    vector<Edge> mst;
+
+    for (const auto& e : edges) {
+        //Encontrar la raíz de cada conjunto
+        int root1 = uf.find(e.src);
+        int root2 = uf.find(e.dest);
+        //Validar si las aristas no forman un ciclo
+        if (root1 != root2) {
+            //Agregar la arista al MST
+            mst.push_back(e);
+            //Unir los conjuntos
+            uf.unionSets(root1, root2);
+        }
+    }
+
+    return mst;
+}
 
 //Función que calcuala la central más cercana a una colonia
 //Complejidad: O(n)
@@ -62,11 +100,37 @@ int main(){
     //La ubicación de la nueva central
     Punto nuevaCentral(400, 300);
 
+    // 1. Calcular el MST
+    vector<Edge> aristas;
+    for (int i = 0; i < N; ++i) {
+        for (int j = i + 1; j < N; ++j) {
+            aristas.push_back(Edge(i, j, distancias[i][j]));
+        }
+    }
+
+    vector<Edge> mst = kruskalMST(aristas, N);
+
     // Encontrar la central más cercana
     int indiceCentral = centralMasCercana(nuevaCentral, centrales);
     Punto centralCercana = centrales[indiceCentral];
 
     // Salida
+    cout << "1." << endl;
+    cout << "Edges in MST:" << endl;
+    for (const auto& e : mst) {
+        cout << "(" << char('A' + e.src) << ", " << char('A' + e.dest) << ")" << endl;
+    }
+
+    cout << endl;
+
+    cout << "2." << endl;
+
+    cout << endl;
+
+    cout << "3." << endl;
+
+    cout << endl;
+
     cout << "4." << endl;
     cout << "(" << centralCercana.getX() << ", " << centralCercana.getY() << ")" << endl;
 
