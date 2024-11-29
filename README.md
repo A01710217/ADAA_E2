@@ -15,6 +15,22 @@ Usada para trabajar en actualizaciones y nuevas características antes de integr
 Dedicada a realizar pruebas unitarias automatizadas, con ayuda de CMaker para asegurar una correcta ejecución del código.
 
 ### Estructura del Proyecto
+~~~
+├── .github/                      # Configuración para GitHub Actions.
+├── Entradas/                     # Carpeta con archivos de entrada para pruebas.
+├── .gitignore                    # Exclusión de archivos y directorios en Git.
+├── central.h                     # Código para la lógica de ubicación de centrales.
+├── edge.h                        # Implementación de aristas del grafo.
+├── fordFulkerson.h               # Algoritmo de Ford-Fulkerson.
+├── kruskal.h                     # Algoritmo de Kruskal.
+├── main.cpp                      # Archivo principal del programa.
+├── main.exe                      # Ejecutable generado.
+├── punto.h                       # Lógica para puntos en un plano cartesiano.
+├── README.md                     # Documentación del proyecto.
+├── sonar-project.properties      # Configuración para SonarQube.
+├── tsp.h                         # Solución al problema del viajante.
+└── unionFind.h                   # Estructura de datos Unión-Find.
+~~~
 
 ### Descripción del Proyecto
 #### Problemas Resueltos
