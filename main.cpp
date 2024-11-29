@@ -40,16 +40,16 @@ void leerEntradasDesdeArchivo(const string& nombreArchivo,
     //Validar si el archivo se abrió correctamente
     if (!archivo.is_open()) {
         cout << "main.cpp" << ": File \"" << nombreArchivo << "\" not found\n";
-        exit(-1);  // Salir del programa con un código de error
+        exit(-1);  //Salir del programa con un código de error
     }
 
     string linea;
 
-    // Leer el número de colonias
+    //Leer el número de colonias
     leerLineaValida(archivo, linea);
     N = stoi(linea);
 
-    // Leer la matriz de distancias
+    //Leer la matriz de distancias
     distancias.resize(N, vector<int>(N));
     for (int i = 0; i < N; ++i) {
         leerLineaValida(archivo, linea);
@@ -59,7 +59,7 @@ void leerEntradasDesdeArchivo(const string& nombreArchivo,
         }
     }
 
-    // Leer la matriz de capacidades
+    //Leer la matriz de capacidades
     capacidades.resize(N, vector<int>(N));
     for (int i = 0; i < N; ++i) {
         leerLineaValida(archivo, linea);
@@ -69,7 +69,7 @@ void leerEntradasDesdeArchivo(const string& nombreArchivo,
         }
     }
 
-    // Leer las coordenadas de las centrales
+    //Leer las coordenadas de las centrales
     for (int i = 0; i < N; ++i) {
         leerLineaValida(archivo, linea);
         size_t pos1 = linea.find('(');
@@ -80,7 +80,7 @@ void leerEntradasDesdeArchivo(const string& nombreArchivo,
         centrales.emplace_back(x, y);
     }
 
-    // Leer la ubicación de la nueva central
+    //Leer la ubicación de la nueva central
     leerLineaValida(archivo, linea);
     size_t pos1 = linea.find('(');
     size_t pos2 = linea.find(',');
