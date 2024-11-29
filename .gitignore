@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Ignorar directorios generados por CMake
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/_deps/

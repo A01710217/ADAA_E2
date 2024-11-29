@@ -1,0 +1,43 @@
+Start testing: Nov 29 11:12 Hora estándar central (México)
+----------------------------------------------------------
+1/1 Testing: TestMain
+1/1 Test: TestMain
+Command: "C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build/test_main.exe"
+Directory: C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build
+"TestMain" start time: Nov 29 11:12 Hora estándar central (México)
+Output:
+----------------------------------------------------------
+[==========] Running 4 tests from 4 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from KruskalTest
+[ RUN      ] KruskalTest.MSTTest
+[       OK ] KruskalTest.MSTTest (0 ms)
+[----------] 1 test from KruskalTest (0 ms total)
+
+[----------] 1 test from TSPTest
+[ RUN      ] TSPTest.CostTest
+[       OK ] TSPTest.CostTest (69 ms)
+[----------] 1 test from TSPTest (69 ms total)
+
+[----------] 1 test from FordFulkersonTest
+[ RUN      ] FordFulkersonTest.MaxFlowTest
+[       OK ] FordFulkersonTest.MaxFlowTest (0 ms)
+[----------] 1 test from FordFulkersonTest (0 ms total)
+
+[----------] 1 test from CentralMasCercanaTest
+[ RUN      ] CentralMasCercanaTest.BasicTest
+[       OK ] CentralMasCercanaTest.BasicTest (0 ms)
+[----------] 1 test from CentralMasCercanaTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 4 test suites ran. (70 ms total)
+[  PASSED  ] 4 tests.
+<end of output>
+Test time =   0.30 sec
+----------------------------------------------------------
+Test Passed.
+"TestMain" end time: Nov 29 11:12 Hora estándar central (México)
+"TestMain" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 29 11:12 Hora estándar central (México)

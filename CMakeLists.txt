@@ -1,10 +1,16 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.22)
 
 # Nombre del proyecto
-project(E2)
+project(
+    "E2"
+    VERSION 1.0.0
+    LANGUAGES C CXX
+)
 
-# Estándar de C++
-set(CMAKE_CXX_STANDARD 11)
+# Configuración global de CMake
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Incluir los archivos de cabecera
 include_directories(${CMAKE_SOURCE_DIR})
@@ -20,6 +26,9 @@ set(SOURCES
 # Crear el ejecutable para tu código principal
 add_executable(main ${SOURCES})
 
+# Opciones
+option(ENABLE_TESTING "Enable a Unit Testing build." ON)
+
 # Descarga GoogleTest usando FetchContent
 include(FetchContent)
 FetchContent_Declare(
@@ -29,18 +38,21 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# Añadir archivo de pruebas
-set(TEST_SOURCES
-    test_main.cpp  # Cambia a tu archivo de pruebas
-)
+# Si se habilitan las pruebas, agrega GoogleTest y las pruebas unitarias
+if(ENABLE_TESTING)
+    enable_testing()
 
-add_executable(tests ${TEST_SOURCES})
+    # Archivos fuente de pruebas
+    set(TEST_SOURCES
+        tests/test_main.cpp
+    )
 
-# Enlazar GoogleTest con las pruebas
-target_link_libraries(tests gtest gtest_main)
+    # Crear el ejecutable de pruebas
+    add_executable(test_main ${TEST_SOURCES})
 
-# Registrar las pruebas para CTest
-add_test(NAME MiTest COMMAND tests)
+    # Enlazar GoogleTest
+    target_link_libraries(test_main PRIVATE gtest gtest_main)
 
-# Enlazar GoogleTest con tu código principal si es necesario
-# target_link_libraries(main gtest gtest_main)
+    # Registrar las pruebas con CTest
+    add_test(NAME TestMain COMMAND test_main)
+endif()
