@@ -1,15 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <sstream> // Para procesar líneas
 #include <algorithm> // Para std::sort
 #include <queue>   // Para std::queue
 #include <climits>  // Para INT_MAX
 #include <cstring>  // Para memset
-
-// Variables globales para memorización y reconstrucción de la ruta
-const int MAX = 20; // Máximo número de nodos
-int dp[1 << MAX][MAX]; // Memorización para el TSP
-int parent[1 << MAX][MAX]; // Para reconstruir la ruta óptima
 
 //Importar la clase Punto
 #include "punto.h"
@@ -18,7 +14,84 @@ int parent[1 << MAX][MAX]; // Para reconstruir la ruta óptima
 //Importar la clase UnionFind
 #include "unionFind.h"
 
+// Variables globales para memorización y reconstrucción de la ruta
+const int MAX = 20; // Máximo número de nodos
+int dp[1 << MAX][MAX]; // Memorización para el TSP
+int parent[1 << MAX][MAX]; // Para reconstruir la ruta óptima
+
 using namespace std;
+
+//Función para saltar líneas vacías o con solo espacios
+void leerLineaValida(ifstream& archivo, string& linea) {
+    do {
+        getline(archivo, linea);
+    } while (archivo && (linea.empty() || std::all_of(linea.begin(), linea.end(), [](unsigned char c) { return std::isspace(c); })));
+}
+
+//Función para leer las entradas desde un archivo
+void leerEntradasDesdeArchivo(const string& nombreArchivo, 
+                              int& N, 
+                              vector<vector<int>>& distancias, 
+                              vector<vector<int>>& capacidades, 
+                              vector<Punto>& centrales, 
+                              Punto& nuevaCentral) {
+    ifstream archivo(nombreArchivo);
+
+    //Validar si el archivo se abrió correctamente
+    if (!archivo.is_open()) {
+        cout << "main.cpp" << ": File \"" << nombreArchivo << "\" not found\n";
+        exit(-1);  // Salir del programa con un código de error
+    }
+
+    string linea;
+
+    // Leer el número de colonias
+    leerLineaValida(archivo, linea);
+    N = stoi(linea);
+
+    // Leer la matriz de distancias
+    distancias.resize(N, vector<int>(N));
+    for (int i = 0; i < N; ++i) {
+        leerLineaValida(archivo, linea);
+        istringstream stream(linea);
+        for (int j = 0; j < N; ++j) {
+            stream >> distancias[i][j];
+        }
+    }
+
+    // Leer la matriz de capacidades
+    capacidades.resize(N, vector<int>(N));
+    for (int i = 0; i < N; ++i) {
+        leerLineaValida(archivo, linea);
+        istringstream stream(linea);
+        for (int j = 0; j < N; ++j) {
+            stream >> capacidades[i][j];
+        }
+    }
+
+    // Leer las coordenadas de las centrales
+    for (int i = 0; i < N; ++i) {
+        leerLineaValida(archivo, linea);
+        size_t pos1 = linea.find('(');
+        size_t pos2 = linea.find(',');
+        size_t pos3 = linea.find(')');
+        int x = stoi(linea.substr(pos1 + 1, pos2 - pos1 - 1));
+        int y = stoi(linea.substr(pos2 + 1, pos3 - pos2 - 1));
+        centrales.emplace_back(x, y);
+    }
+
+    // Leer la ubicación de la nueva central
+    leerLineaValida(archivo, linea);
+    size_t pos1 = linea.find('(');
+    size_t pos2 = linea.find(',');
+    size_t pos3 = linea.find(')');
+    int x = stoi(linea.substr(pos1 + 1, pos2 - pos1 - 1));
+    int y = stoi(linea.substr(pos2 + 1, pos3 - pos2 - 1));
+    nuevaCentral = Punto(x, y);
+
+    archivo.close();
+}
+
 
 // Comparador para ordenar aristas por peso
 //Complejidad: O(1)
@@ -190,37 +263,16 @@ int centralMasCercana(const Punto& colonia, const vector<Punto>& centrales) {
     return indiceCentralMasCercana;
 }
 
-int main(){
-    //Entradas de prueba:
-    //Un numero entero N que representa el número de colonias en la ciudad
-    int N = 4;
+int main(int argc, char* argv[]){
+    int N; //Un numero entero N que representa el número de colonias en la ciudad
+    vector<vector<int>> distancias; //Una matriz cuadrada de N x N que representa el grafo con las distancias en kilómetros entre las colonias de la ciudad
+    vector<vector<int>> capacidades; //Una matriz cuadrada de N x N que representa las capacidades máximas de flujo de datos entre colonia i y colonia j
 
-    //Una matriz cuadrada de N x N que representa el grafo con las distancias en kilómetros entre las colonias de la ciudad
-    vector<vector<int>> distancias = {
-        {0, 16, 54, 32},
-        {16, 0, 18, 21},
-        {45, 18, 0, 7},
-        {32, 21, 7, 0}
-    };
+    vector<Punto> centrales; //Una lista de N pares ordenados de la forma (A,B) que representan la ubicación en un plano coordenado de las centrales
+    Punto nuevaCentral; //La ubicación de la nueva central
 
-    //Una matriz cuadrada de N x N que representa las capacidades máximas de flujo de datos entre colonia i y colonia j
-    vector<vector<int>> capacidades = {
-        {0, 48, 12, 18},
-        {52, 0, 42, 32},
-        {18, 46, 0, 56},
-        {24, 36, 52, 0}
-    };
-
-    //Una lista de N pares ordenados de la forma (A,B) que representan la ubicación en un plano coordenado de las centrales
-    vector<Punto> centrales = {
-        Punto(200, 500),
-        Punto(300, 100),
-        Punto(450, 150),
-        Punto(520, 480)
-    };
-
-    //La ubicación de la nueva central
-    Punto nuevaCentral(400, 300);
+    // Leer datos desde el archivo
+    leerEntradasDesdeArchivo("./Entradas/Entrada01.txt", N, distancias, capacidades, centrales, nuevaCentral);
 
     // 1. Calcular el MST
     vector<Edge> aristas;
