@@ -1,3 +1,4 @@
+
 /*
  * Archivo: kruskal.h
  * Autor: Carlos Anaya Ruiz

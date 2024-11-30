@@ -1,3 +1,4 @@
+
 /*
  * Archivo: punto.h
  * Autor: Axel Camacho Villafuerte
