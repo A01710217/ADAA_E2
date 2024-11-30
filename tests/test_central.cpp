@@ -11,6 +11,6 @@ TEST(CentralMasCercanaTest, BasicTest) {
 
     ASSERT_EQ(indiceCentral, 2);  // Verifica que la central más cercana sea la de índice 2
     Punto centralCercana = centrales[indiceCentral];
-    ASSERT_EQ(centralCercana.get_x(), 450);
-    ASSERT_EQ(centralCercana.get_y(), 150);
+    ASSERT_EQ(centralCercana.GetX(), 450);
+    ASSERT_EQ(centralCercana.GetY(), 150);
 }

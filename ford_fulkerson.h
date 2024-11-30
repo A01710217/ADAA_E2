@@ -1,23 +1,25 @@
 /*
  * Archivo: ford_fulkerson.h
  * Autor: Carlos Anaya Ruiz
- * Descripción: Funciones para encontrar el flujo máximo entre dos nodos.
+ * Descripción: Implementación de funciones para encontrar el flujo máximo entre dos nodos 
+ *              usando el algoritmo de Ford-Fulkerson.
  * Fecha: 2024
- * Versión: 1.0
+ * Versión: 1.1
  * 
- * Este archivo define la función bfs y la función ford_fulkerson, que implementan 
- * el algoritmo de Ford-Fulkerson para encontrar el flujo máximo entre dos nodos.
+ * Este archivo define dos funciones principales:
+ * - `bfs`: Realiza una búsqueda en anchura (BFS) para encontrar un camino de aumento.
+ * - `ford_fulkerson`: Implementa el algoritmo de Ford-Fulkerson para calcular el flujo máximo
+ *   entre un nodo fuente y un nodo sumidero.
  * 
- * La función bfs realiza una búsqueda en anchura (BFS) para encontrar un camino de 
- * aumento.
+ * Complejidad:
+ * - `bfs`: O(n), donde n es el número de nodos.
+ * - `ford_fulkerson`: O(n^2 * m), donde n es el número de nodos y m es el número de aristas.
  * 
- * La función ford_fulkerson implementa el algoritmo de Ford-Fulkerson para encontrar
- * el flujo máximo.
+ * Dependencias:
+ * - Utiliza las bibliotecas estándar de C++: `<vector>`, `<climits>`, y `<queue>`.
  * 
- * La complejidad de la función bfs es O(n), donde n es el número de nodos.
- * 
- * La complejidad de la función ford_fulkerson es O(n^2 * m), donde n es el número de
- * nodos y m es el número de aristas.
+ * Uso:
+ * - Ideal para problemas de flujo máximo en redes dirigidas con capacidades no negativas.
  */
 
 #ifndef FORD_FULKERSON_H

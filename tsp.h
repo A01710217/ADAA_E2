@@ -1,19 +1,25 @@
-/**
+/*
  * Archivo: tsp.h
  * Autor: Carlos Anaya Ruiz
- * Descripción: Funciones para resolver el problema del vendedor viajero (TSP).
+ * Descripción: Funciones para resolver el Problema del Viajante (TSP) utilizando programación dinámica.
  * Fecha: 2024
+ * Versión: 1.1
  * 
- * Este archivo define la función tsp, que implementa el algoritmo de programación
- * dinámica para encontrar el costo mínimo de un recorrido que visita todas las ciudades
- * exactamente una vez y regresa al punto de inicio.
+ * Este archivo define las funciones:
+ * - `tsp`: Calcula el costo mínimo de un recorrido que visita todas las ciudades exactamente una vez y regresa al inicio.
+ * - `total_cost`: Implementa la lógica principal con memorización para evitar recalcular estados visitados.
+ * - `get_route`: Reconstruye e imprime la ruta óptima.
  * 
- * La función tsp utiliza memorización para evitar recalcular estados ya visitados y
- * reconstruye la ruta óptima.
+ * Complejidad:
+ * - `total_cost`: O(2^n * n^2), donde n es el número de ciudades.
+ * - `get_route`: O(n), donde n es el número de ciudades.
+ * - `tsp`: O(2^n * n^2), ya que depende de `total_cost`.
  * 
- * La complejidad de la función tsp es O(2^n * n^2), donde n es el número de ciudades.
+ * Dependencias:
+ * - Utiliza las bibliotecas estándar de C++: `<iostream>`, `<climits>`, `<cstring>`, y `<vector>`.
  * 
- * La complejidad de la función get_route es O(n), donde n es el número de ciudades.
+ * Uso:
+ * - Ideal para resolver problemas de optimización en grafos completos pequeños (hasta 20 nodos debido a la complejidad exponencial).
  */
 
 #ifndef TSP_H
@@ -89,7 +95,9 @@ int total_cost(int mask, int pos, int n, const vector<vector<int>>& cost) {
  */
 void get_route(int mask, int pos, int n) {
     cout << char('A' + pos) << " "; // Imprimir la ciudad actual
-    if (mask == (1 << n) - 1) return; // Caso base: todas las ciudades visitadas
+    if (mask == (1 << n) - 1) {
+        return; // Caso base: todas las ciudades visitadas
+    }
 
     int nextCity = parent[mask][pos];
     get_route(mask | (1 << nextCity), nextCity, n); // Moverse a la siguiente ciudad

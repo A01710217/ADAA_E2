@@ -1,18 +1,22 @@
 /*
- * Archivno: edge.h
+ * Archivo: edge.h
  * Autor: Mónica Soberón Zubía
- * Descripción: Funciones para definir una arista en un grafo ponderado.
+ * Descripción: Definición de una clase para representar una arista en un grafo ponderado.
  * Fecha: 2024
- * Versión: 1.0
+ * Versión: 1.1
  * 
- * Este archivo define la una clase Edge que representa una arista en un grafo ponderado.
- * La clase tiene tres atributos: src, dest y weight, que representan el nodo de origen, 
- * el nodo de destino y el peso de la arista, respectivamente.
+ * Este archivo define la clase `Edge`, que representa una arista en un grafo ponderado.
  * 
- * La clase Edge tiene un constructor que inicializa los atributos de la arista.
+ * Atributos:
+ * - `src`: Nodo de origen de la arista.
+ * - `dest`: Nodo de destino de la arista.
+ * - `weight`: Peso de la arista.
  * 
- * La complejidad de la clase es O(1).
+ * Métodos:
+ * - Constructor que inicializa los atributos de la clase.
  * 
+ * Complejidad:
+ * - Todas las operaciones de esta clase tienen una complejidad O(1).
  */
 
 #ifndef EDGE_H

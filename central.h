@@ -1,19 +1,22 @@
 /*
  * Archivo: central.h
  * Autor: Axel Camacho Villafuerte
- * Descripción: Funciones para encontrar la central más cercana a una colonia.
+ * Descripción: Este archivo contiene la implementación de funciones para encontrar 
+ *              la central más cercana a una colonia, utilizando las coordenadas 
+ *              proporcionadas.
  * Fecha: 2024
- * Versión: 1.0
+ * Versión: 1.1
  *
- * Este archivo define la función encontrar_central_cercana, que recibe las 
- * coordenadas de una colonia y un vector con las coordenadas de las centrales, 
- * y devuelve el índice de la central más cercana a la colonia.
+ * Detalles:
+ * - Define la función `encontrar_central_cercana`, que calcula el índice de la
+ *   central más cercana a una colonia usando coordenadas cartesianas.
+ * - Incluye verificaciones para manejar errores como vectores vacíos.
  * 
- * La función recorre el vector de centrales y calcula la distancia de la colonia
- * a cada central, guardando el índice de la central con la menor distancia.
+ * Complejidad:
+ * - Función principal: O(n), donde n es el número de centrales.
  * 
- * La complejidad de la función es O(n), donde n es el número de centrales.
- * 
+ * Dependencias:
+ * - Requiere la clase `Punto` definida en "punto.h".
  */
 
 #ifndef CENTRAL_H
@@ -22,8 +25,6 @@
 #include <vector>
 #include "punto.h"
 
-// Función que calcula la central más cercana a una colonia
-// Complejidad: O(n)
 /**
  * @brief Encuentra el índice de la central más cercana a una colonia.
  * 
@@ -40,11 +41,11 @@ int encontrar_central_cercana(const Punto& colonia, const std::vector<Punto>& ce
     int indice_central_mas_cercana = 0;
 
     // Calcular la distancia de la colonia a la primera central
-    double distancia_minima = colonia.distancia(centrales[0]);
+    double distancia_minima = colonia.Distancia(centrales[0]);
 
     for (size_t i = 1; i < centrales.size(); i++) {
         // Calcular la distancia de la colonia a cada central
-        double distancia = colonia.distancia(centrales[i]);
+        double distancia = colonia.Distancia(centrales[i]);
 
         // Validar si la distancia es menor a la previamente calculada
         if (distancia < distancia_minima) {
@@ -58,4 +59,3 @@ int encontrar_central_cercana(const Punto& colonia, const std::vector<Punto>& ce
 }
 
 #endif // CENTRAL_H
-

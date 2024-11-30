@@ -1,21 +1,22 @@
-/**
- * Archivo: unionFind.h
+/*
+ * Archivo: union_find.h
  * Autor: Carlos Anaya Ruiz
- * Descripción: Funciones para implementar la estructura de datos Union-Find.
+ * Descripción: Implementación de la estructura de datos Union-Find (Conjuntos Disjuntos).
  * Fecha: 2024
- * Versión: 1.0
+ * Versión: 1.1
  * 
- * Este archivo define la clase UnionFind que implementa la estructura de datos Union-Find.
+ * Este archivo define la clase `UnionFind`, que incluye:
+ * - Métodos para encontrar el padre de un conjunto (con compresión de caminos).
+ * - Métodos para unir dos conjuntos (unión por rango).
  * 
- * La clase UnionFind tiene dos atributos: parent y rank, que representan el padre de un conjunto
- * y la altura de un conjunto, respectivamente.
+ * Complejidad:
+ * - Las operaciones `FindSet` y `UnionSets` tienen una complejidad amortizada de O(α(n)),
+ *   donde α(n) es la inversa de la función de Ackermann.
  * 
- * La clase UnionFind tiene un constructor que inicializa los atributos de la estructura.
- * 
- * La clase UnionFind tiene métodos para encontrar el padre de un conjunto y unir dos conjuntos.
- * 
- * La complejidad de la clase es O(alpha(n)), donde alpha(n) es la inversa de la función de Ackermann.
+ * Dependencias:
+ * - Utiliza la biblioteca estándar `<vector>`.
  */
+
 #ifndef UNIONFIND_H
 #define UNIONFIND_H
 
@@ -44,7 +45,7 @@ public:
      * @param s Elemento del conjunto.
      * @return Padre del conjunto.
      */
-    int find(int);
+    int FindSet(int);
 
     /**
      * @brief Une dos conjuntos.
@@ -52,22 +53,22 @@ public:
      * @param s1 Elemento del primer conjunto.
      * @param s2 Elemento del segundo conjunto.
      */
-    void unionSets(int s1, int s2);
+    void UnionSets(int s1, int s2);
 };
 
 UnionFind::UnionFind(int size) : parent(size), rank(size, 0) {
     for (int i = 0; i < size; ++i) parent[i] = i;
 }
 
-int UnionFind::find(int s) {
+int UnionFind::FindSet(int s) {
     if (s != parent[s])
-        parent[s] = find(parent[s]);
+        parent[s] = FindSet(parent[s]);
     return parent[s];
 }
 
-void UnionFind::unionSets(int s1, int s2) {
-    int root1 = find(s1);
-    int root2 = find(s2);
+void UnionFind::UnionSets(int s1, int s2) {
+    int root1 = FindSet(s1);
+    int root2 = FindSet(s2);
     if (root1 != root2) {
         if (rank[root1] > rank[root2])
             parent[root2] = root1;

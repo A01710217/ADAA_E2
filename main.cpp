@@ -1,18 +1,36 @@
-/**
+/*
+ * Archivo: main.cpp
  * E2. Actividad Integradora 2
  * Autores: 
  *      Axel Camacho Villafuerte
  *      Mónica Soberón Zubía
  *      Carlos Anaya Ruiz
- * Descripción: main.cpp es el archivo principal del proyecto E2.
+ * Descripción: Archivo principal del proyecto E2. 
+ *              Este programa realiza diversas operaciones sobre un grafo:
+ *              - Calcula el Árbol de Expansión Mínima (MST) usando el algoritmo de Kruskal.
+ *              - Encuentra el costo mínimo del Problema del Viajante (TSP).
+ *              - Calcula el flujo máximo usando el algoritmo de Ford-Fulkerson.
+ *              - Determina la central más cercana a una nueva ubicación.
+ * 
+ * Entrada:
+ * - El programa lee los datos desde un archivo de texto, por defecto: "Entradas/Entrada01.txt".
+ * 
+ * Salida:
+ * - Resultados de las operaciones en la terminal:
+ *   1. Las aristas del MST.
+ *   2. La ruta del TSP.
+ *   3. El flujo máximo entre el nodo fuente y el nodo sumidero.
+ *   4. Las coordenadas de la central más cercana.
+ * 
+ * Compilación:
+ * - Utiliza el comando: `g++ main.cpp -o main`.
+ * 
+ * Ejecución:
+ * - Ejecuta el programa con: `./main`.
+ * 
  * Fecha: 2024
- * Versión: 1.0
- * 
- * El programa lee las entradas desde el archivo "Entradas/Entrada01.txt" y escribe los resultados en la terminal.
- * 
- * Para compilar el programa, se debe ejecutar el comando "g++ main.cpp -o main.exe" en la terminal.
- * Para ejecutar el programa, se debe ejecutar el comando "./main.exe" en la terminal.
-*/
+ * Versión: 1.1
+ */
 
 #include <iostream>
 #include <vector>
@@ -165,7 +183,7 @@ int main(){
     cout << endl;
 
     cout << "4." << endl;
-    cout << "(" << centralCercana.get_x() << ", " << centralCercana.get_y() << ")" << endl;
+    cout << "(" << centralCercana.GetX() << ", " << centralCercana.GetY() << ")" << endl;
 
     return 0;
 }

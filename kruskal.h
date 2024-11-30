@@ -1,22 +1,27 @@
 /*
  * Archivo: kruskal.h
  * Autor: Carlos Anaya Ruiz
- * Descripción: Funciones para encontrar el árbol de expansión mínima de un grafo.
+ * Descripción: Implementación del algoritmo de Kruskal para encontrar el árbol de expansión mínima (MST) de un grafo.
  * Fecha: 2024
- * Versión: 1.0
+ * Versión: 1.1
  * 
- * Este archivo define la función compare_weight y la función kruskal_mst, que implementan
- * el algoritmo de Kruskal para encontrar el árbol de expansión mínima de un grafo.
+ * Este archivo define dos funciones principales:
+ * - `compare_weight`: Comparador para ordenar aristas por peso.
+ * - `kruskal_mst`: Implementa el algoritmo de Kruskal para encontrar el MST de un grafo.
  * 
- * La función compare_weight es un comparador para ordenar aristas por peso.
+ * Complejidad:
+ * - `compare_weight`: O(1), ya que realiza una simple comparación entre pesos de las aristas.
+ * - `kruskal_mst`: O(n log n), donde n es el número de aristas. Esto incluye el tiempo de ordenamiento y la unión de conjuntos disjuntos.
  * 
- * La función kruskal_mst aplica el algoritmo de Kruskal para encontrar el árbol de expansión
- * mínima de un grafo.
+ * Dependencias:
+ * - Incluye "edge.h" para la representación de aristas.
+ * - Incluye "unionFind.h" para la estructura de conjuntos disjuntos (Union-Find).
+ * - Utiliza las bibliotecas estándar de C++: `<vector>` y `<algorithm>`.
  * 
- * La complejidad de la función compare_weight es O(1).
- * 
- * La complejidad de la función kruskal_mst es O(n log n), donde n es el número de aristas.
-*/
+ * Uso:
+ * - Ideal para resolver problemas que requieren encontrar el árbol de expansión mínima de un grafo conexo y ponderado.
+ */
+
 #ifndef KRUSKAL_H
 #define KRUSKAL_H
 
@@ -53,11 +58,11 @@ std::vector<Edge> kruskal_mst(std::vector<Edge>& edges, int N) {
     std::vector<Edge> mst;
 
     for (const auto& e : edges) {
-        int root1 = uf.find(e.src);
-        int root2 = uf.find(e.dest);
+        int root1 = uf.FindSet(e.src);
+        int root2 = uf.FindSet(e.dest);
         if (root1 != root2) {
             mst.push_back(e);
-            uf.unionSets(root1, root2);
+            uf.UnionSets(root1, root2);
         }
     }
 
