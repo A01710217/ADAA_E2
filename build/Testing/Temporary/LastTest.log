@@ -1,0 +1,44 @@
+Start testing: Nov 29 21:00 Hora estándar central (México)
+----------------------------------------------------------
+1/1 Testing: AllTests
+1/1 Test: AllTests
+Command: "C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build/test_suite.exe"
+Directory: C:/Users/axelc/OneDrive/Documentos/ADAA/ADAA_E2/build
+"AllTests" start time: Nov 29 21:00 Hora estándar central (México)
+Output:
+----------------------------------------------------------
+Running main() from C:\Users\axelc\OneDrive\Documentos\ADAA\ADAA_E2\build\_deps\googletest-src\googletest\src\gtest_main.cc
+[==========] Running 4 tests from 4 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from CentralMasCercanaTest
+[ RUN      ] CentralMasCercanaTest.BasicTest
+[       OK ] CentralMasCercanaTest.BasicTest (0 ms)
+[----------] 1 test from CentralMasCercanaTest (0 ms total)
+
+[----------] 1 test from FordFulkersonTest
+[ RUN      ] FordFulkersonTest.MaxFlowTest
+[       OK ] FordFulkersonTest.MaxFlowTest (0 ms)
+[----------] 1 test from FordFulkersonTest (0 ms total)
+
+[----------] 1 test from TSPTest
+[ RUN      ] TSPTest.CostTest
+[       OK ] TSPTest.CostTest (50 ms)
+[----------] 1 test from TSPTest (50 ms total)
+
+[----------] 1 test from KruskalTest
+[ RUN      ] KruskalTest.MSTTest
+[       OK ] KruskalTest.MSTTest (0 ms)
+[----------] 1 test from KruskalTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 4 test suites ran. (50 ms total)
+[  PASSED  ] 4 tests.
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"AllTests" end time: Nov 29 21:00 Hora estándar central (México)
+"AllTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 29 21:00 Hora estándar central (México)
