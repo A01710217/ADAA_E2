@@ -28,15 +28,6 @@ jobs:
             cmake ..
             cmake --build .
             ctest --output-on-failure
-        
-        # 4. Generar informe de cobertura (opcional, si usas cobertura)
-        - name: Generate coverage report
-          run: |
-            sudo apt-get install -y lcov
-            cd build
-            lcov --capture --directory . --output-file coverage.info
-            lcov --remove coverage.info '/usr/*' --output-file coverage.info
-            lcov --list coverage.info
 
     
   build:
