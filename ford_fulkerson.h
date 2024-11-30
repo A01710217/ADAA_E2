@@ -1,5 +1,27 @@
-#ifndef FORDFULKERSON_H
-#define FORDFULKERSON_H
+/*
+ * Archivo: ford_fulkerson.h
+ * Autor: Carlos Anaya Ruiz
+ * Descripción: Funciones para encontrar el flujo máximo entre dos nodos.
+ * Fecha: 2024
+ * Versión: 1.0
+ * 
+ * Este archivo define la función bfs y la función ford_fulkerson, que implementan 
+ * el algoritmo de Ford-Fulkerson para encontrar el flujo máximo entre dos nodos.
+ * 
+ * La función bfs realiza una búsqueda en anchura (BFS) para encontrar un camino de 
+ * aumento.
+ * 
+ * La función ford_fulkerson implementa el algoritmo de Ford-Fulkerson para encontrar
+ * el flujo máximo.
+ * 
+ * La complejidad de la función bfs es O(n), donde n es el número de nodos.
+ * 
+ * La complejidad de la función ford_fulkerson es O(n^2 * m), donde n es el número de
+ * nodos y m es el número de aristas.
+ */
+
+#ifndef FORD_FULKERSON_H
+#define FORD_FULKERSON_H
 
 #include <vector>
 #include <climits>
@@ -7,8 +29,17 @@
 
 using namespace std;
 
-// Función para realizar una búsqueda en anchura (BFS) y encontrar si existe un camino de aumento
-//Complejidad: O(n)
+/**
+ * @brief Realiza una búsqueda en anchura (BFS) para encontrar un camino de aumento.
+ * 
+ * @param residualGraph Grafo residual representado como una matriz de adyacencia.
+ * @param source Nodo fuente.
+ * @param sink Nodo sumidero.
+ * @param parent Vector para almacenar el camino encontrado.
+ * @return true si existe un camino de aumento, false en caso contrario.
+ * 
+ * Complejidad: O(n), donde n es el número de nodos.
+ */
 bool bfs(const vector<vector<int>>& residualGraph, int source, int sink, vector<int>& parent) {
     int V = residualGraph.size();
     vector<bool> visited(V, false);
@@ -36,9 +67,17 @@ bool bfs(const vector<vector<int>>& residualGraph, int source, int sink, vector<
     return false;
 }
 
-// Función para aplicar el algoritmo de Ford-Fulkerson para encontrar el flujo máximo desde s a t
-//Complejidad: O(n^2 * m)
-int fordFulkerson(vector<vector<int>> graph, int source, int sink) {
+/**
+ * @brief Implementa el algoritmo de Ford-Fulkerson para encontrar el flujo máximo entre dos nodos.
+ * 
+ * @param graph Grafo representado como una matriz de adyacencia, donde cada elemento representa la capacidad.
+ * @param source Nodo fuente.
+ * @param sink Nodo sumidero.
+ * @return Flujo máximo entre el nodo fuente y el nodo sumidero.
+ * 
+ * Complejidad: O(n^2 * m), donde n es el número de nodos y m es el número de aristas.
+ */
+int ford_fulkerson(vector<vector<int>> graph, int source, int sink) {
     int u, v;
     int V = graph.size();
     vector<vector<int>> residualGraph = graph;  // Grafo residual donde residualGraph[u][v] indica capacidad residual de u a v

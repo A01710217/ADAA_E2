@@ -1,3 +1,21 @@
+/**
+ * Archivo: tsp.h
+ * Autor: Carlos Anaya Ruiz
+ * Descripción: Funciones para resolver el problema del vendedor viajero (TSP).
+ * Fecha: 2024
+ * 
+ * Este archivo define la función tsp, que implementa el algoritmo de programación
+ * dinámica para encontrar el costo mínimo de un recorrido que visita todas las ciudades
+ * exactamente una vez y regresa al punto de inicio.
+ * 
+ * La función tsp utiliza memorización para evitar recalcular estados ya visitados y
+ * reconstruye la ruta óptima.
+ * 
+ * La complejidad de la función tsp es O(2^n * n^2), donde n es el número de ciudades.
+ * 
+ * La complejidad de la función get_route es O(n), donde n es el número de ciudades.
+ */
+
 #ifndef TSP_H
 #define TSP_H
 
@@ -9,13 +27,31 @@
 using namespace std;
 
 // Variables globales para memorización y reconstrucción de la ruta
+/**
+ * @brief Máximo número de nodos.
+ */
 const int MAX = 20; // Máximo número de nodos
+/**
+ * @brief Tabla de memorización para el TSP.
+ */
 int dp[1 << MAX][MAX]; // Memorización para el TSP
+/**
+ * @brief Arreglo para reconstruir la ruta óptima.
+ */
 int parent[1 << MAX][MAX]; // Para reconstruir la ruta óptima
 
-// Función recursiva para encontrar el costo mínimo de la ruta
-//Complejidad: O(2^n * n^2)
-int totalCost(int mask, int pos, int n, const vector<vector<int>>& cost) {
+/**
+ * @brief Calcula el costo total de un recorrido que visita todas las ciudades exactamente una vez y regresa al punto de inicio.
+ * 
+ * @param mask Máscara de visitas.
+ * @param pos Ciudad actual.
+ * @param n Número de ciudades.
+ * @param cost Matriz de costos entre ciudades.
+ * @return Costo total del recorrido.
+ * 
+ * Complejidad: O(2^n * n^2)
+ */
+int total_cost(int mask, int pos, int n, const vector<vector<int>>& cost) {
     // Caso base: si todas las ciudades han sido visitadas
     if (mask == (1 << n) - 1) {
         return cost[pos][0]; // Regresar al punto de inicio
@@ -31,7 +67,7 @@ int totalCost(int mask, int pos, int n, const vector<vector<int>>& cost) {
     // Probar visitar cada ciudad no visitada
     for (int i = 0; i < n; ++i) {
         if ((mask & (1 << i)) == 0) { // Si la ciudad `i` no ha sido visitada
-            int newAns = cost[pos][i] + totalCost(mask | (1 << i), i, n, cost);
+            int newAns = cost[pos][i] + total_cost(mask | (1 << i), i, n, cost);
             if (newAns < ans) {
                 ans = newAns;
                 parent[mask][pos] = i; // Guardar la ciudad `i` como próxima en la ruta óptima
@@ -42,18 +78,31 @@ int totalCost(int mask, int pos, int n, const vector<vector<int>>& cost) {
     return dp[mask][pos] = ans; // Guardar el resultado en dp
 }
 
-// Función para reconstruir la ruta óptima
-//Complejidad: O(n)
-void getRoute(int mask, int pos, int n) {
+/**
+ * @brief Reconstruye e imprime la ruta óptima del TSP.
+ * 
+ * @param mask Máscara de visitas.
+ * @param pos Ciudad actual.
+ * @param n Número de ciudades.
+ * 
+ * Complejidad: O(n)
+ */
+void get_route(int mask, int pos, int n) {
     cout << char('A' + pos) << " "; // Imprimir la ciudad actual
     if (mask == (1 << n) - 1) return; // Caso base: todas las ciudades visitadas
 
     int nextCity = parent[mask][pos];
-    getRoute(mask | (1 << nextCity), nextCity, n); // Moverse a la siguiente ciudad
+    get_route(mask | (1 << nextCity), nextCity, n); // Moverse a la siguiente ciudad
 }
 
-// Función principal para resolver el TSP
-//Complejidad: O(2^n * n^2)
+/**
+ * @brief Calcula el costo mínimo de un recorrido que visita todas las ciudades exactamente una vez y regresa al punto de inicio.
+ * 
+ * @param cost Matriz de costos entre ciudades.
+ * @return Costo mínimo del recorrido.
+ * 
+ * Complejidad: O(2^n * n^2)
+ */
 int tsp(const vector<vector<int>>& cost) {
     int n = cost.size();
 
@@ -62,7 +111,7 @@ int tsp(const vector<vector<int>>& cost) {
     memset(parent, -1, sizeof(parent));
 
     // Iniciar desde la ciudad 0 y con la máscara inicial (solo 0 visitada)
-    return totalCost(1, 0, n, cost);
+    return total_cost(1, 0, n, cost);
 }
 
 #endif

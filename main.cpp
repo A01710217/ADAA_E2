@@ -1,3 +1,19 @@
+/**
+ * E2. Actividad Integradora 2
+ * Autores: 
+ *      Axel Camacho Villafuerte
+ *      Mónica Soberón Zubía
+ *      Carlos Anaya Ruiz
+ * Descripción: main.cpp es el archivo principal del proyecto E2.
+ * Fecha: 2024
+ * Versión: 1.0
+ * 
+ * El programa lee las entradas desde el archivo "Entradas/Entrada01.txt" y escribe los resultados en la terminal.
+ * 
+ * Para compilar el programa, se debe ejecutar el comando "g++ main.cpp -o main.exe" en la terminal.
+ * Para ejecutar el programa, se debe ejecutar el comando "./main.exe" en la terminal.
+ */
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -15,7 +31,7 @@
 #include "unionFind.h"
 
 //Importar la función para calcular el flujo máximo
-#include "fordFulkerson.h"
+#include "ford_fulkerson.h"
 //Importar la función para calcular el costo mínimo del TSP
 #include "tsp.h"
 //Importar la función para calcular el MST
@@ -26,14 +42,14 @@
 using namespace std;
 
 //Función para saltar líneas vacías o con solo espacios
-void leerLineaValida(ifstream& archivo, string& linea) {
+void leer_linea_valida(ifstream& archivo, string& linea) {
     do {
         getline(archivo, linea);
     } while (archivo && (linea.empty() || std::all_of(linea.begin(), linea.end(), [](unsigned char c) { return std::isspace(c); })));
 }
 
 //Función para leer las entradas desde un archivo
-void leerEntradasDesdeArchivo(const string& nombreArchivo, 
+void leer_archivos(const string& nombreArchivo, 
                               int& N, 
                               vector<vector<int>>& distancias, 
                               vector<vector<int>>& capacidades, 
@@ -50,13 +66,13 @@ void leerEntradasDesdeArchivo(const string& nombreArchivo,
     string linea;
 
     //Leer el número de colonias
-    leerLineaValida(archivo, linea);
+    leer_linea_valida(archivo, linea);
     N = stoi(linea);
 
     //Leer la matriz de distancias
     distancias.resize(N, vector<int>(N));
     for (int i = 0; i < N; ++i) {
-        leerLineaValida(archivo, linea);
+        leer_linea_valida(archivo, linea);
         istringstream stream(linea);
         for (int j = 0; j < N; ++j) {
             stream >> distancias[i][j];
@@ -66,7 +82,7 @@ void leerEntradasDesdeArchivo(const string& nombreArchivo,
     //Leer la matriz de capacidades
     capacidades.resize(N, vector<int>(N));
     for (int i = 0; i < N; ++i) {
-        leerLineaValida(archivo, linea);
+        leer_linea_valida(archivo, linea);
         istringstream stream(linea);
         for (int j = 0; j < N; ++j) {
             stream >> capacidades[i][j];
@@ -75,7 +91,7 @@ void leerEntradasDesdeArchivo(const string& nombreArchivo,
 
     //Leer las coordenadas de las centrales
     for (int i = 0; i < N; ++i) {
-        leerLineaValida(archivo, linea);
+        leer_linea_valida(archivo, linea);
         size_t pos1 = linea.find('(');
         size_t pos2 = linea.find(',');
         size_t pos3 = linea.find(')');
@@ -85,7 +101,7 @@ void leerEntradasDesdeArchivo(const string& nombreArchivo,
     }
 
     //Leer la ubicación de la nueva central
-    leerLineaValida(archivo, linea);
+    leer_linea_valida(archivo, linea);
     size_t pos1 = linea.find('(');
     size_t pos2 = linea.find(',');
     size_t pos3 = linea.find(')');
@@ -105,7 +121,7 @@ int main(){
     Punto nuevaCentral; //La ubicación de la nueva central
 
     // Leer datos desde el archivo
-    leerEntradasDesdeArchivo("./Entradas/Entrada01.txt", N, distancias, capacidades, centrales, nuevaCentral);
+    leer_archivos("./Entradas/Entrada01.txt", N, distancias, capacidades, centrales, nuevaCentral);
 
     // 1. Calcular el MST
     vector<Edge> aristas;
@@ -115,7 +131,7 @@ int main(){
         }
     }
 
-    vector<Edge> mst = kruskalMST(aristas, N);
+    vector<Edge> mst = kruskal_mst(aristas, N);
 
     // 2. Calcular el costo mínimo del TSP
     int costoMinimo = tsp(distancias);
@@ -123,10 +139,10 @@ int main(){
     // 3. Calcular el flujo máximo
     int source = 0;
     int sink = N - 1;
-    int flujoMaximo = fordFulkerson(capacidades, source, sink);
+    int flujoMaximo = ford_fulkerson(capacidades, source, sink);
 
     // 4. Encontrar la central más cercana
-    int indiceCentral = centralMasCercana(nuevaCentral, centrales);
+    int indiceCentral = encontrar_central_cercana(nuevaCentral, centrales);
     Punto centralCercana = centrales[indiceCentral];
 
     // Salida
@@ -138,7 +154,7 @@ int main(){
     cout << endl;
 
     cout << "2." << endl;
-    getRoute(1, 0, N); // Reconstruir e imprimir la ruta desde la ciudad 0
+    get_route(1, 0, N); // Reconstruir e imprimir la ruta desde la ciudad 0
     cout << "A" << endl; // Regresar a la ciudad inicial
 
     cout << endl;
@@ -149,7 +165,7 @@ int main(){
     cout << endl;
 
     cout << "4." << endl;
-    cout << "(" << centralCercana.getX() << ", " << centralCercana.getY() << ")" << endl;
+    cout << "(" << centralCercana.get_x() << ", " << centralCercana.get_y() << ")" << endl;
 
     return 0;
 }
