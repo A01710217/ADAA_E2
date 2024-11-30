@@ -34,6 +34,3 @@
 # Ignorar directorios generados por CMake
 /build/
 /_deps/
-
-#Ignorar los test para SonarQube
-test/
