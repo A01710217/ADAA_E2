@@ -21,6 +21,10 @@ set(SOURCES
     edge.h
     unionFind.h
     punto.h
+    central.h
+    kruskal.h
+    tsp.h
+    fordFulkerson.h
 )
 
 # Crear el ejecutable para tu código principal
