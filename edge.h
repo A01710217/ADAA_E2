@@ -1,18 +1,18 @@
 /*
  * Archivo: edge.h
- * Autor: Mónica Soberón Zubía
- * Descripción: Definición de una clase para representar una arista en un grafo ponderado.
+ * Autor: Monica Soberon Zubia
+ * Descripcion: Definicion de una clase para representar una arista en un grafo ponderado.
  * Fecha: 2024
- * Versión: 1.1
+ * Version: 1.1
  * 
- * Este archivo define la clase `Edge`, que representa una arista en un grafo ponderado.
+ * Este archivo define la clase Edge, que representa una arista en un grafo ponderado.
  * 
  * Atributos:
- * - `src`: Nodo de origen de la arista.
- * - `dest`: Nodo de destino de la arista.
- * - `weight`: Peso de la arista.
+ * - src: Nodo de origen de la arista.
+ * - dest: Nodo de destino de la arista.
+ * - weight: Peso de la arista.
  * 
- * Métodos:
+ * Metodos:
  * - Constructor que inicializa los atributos de la clase.
  * 
  * Complejidad:
