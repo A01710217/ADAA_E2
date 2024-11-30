@@ -17,6 +17,9 @@
  * 
  * Complejidad:
  * - Todas las operaciones de esta clase tienen una complejidad O(1).
+ * 
+ * Copyright (c) 2024, Monica Soberon Zubia
+ * Todos los derechos reservados.
  */
 
 #ifndef EDGE_H
