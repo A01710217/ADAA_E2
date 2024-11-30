@@ -54,7 +54,7 @@ bool compare_weight(const Edge& e1, const Edge& e2) {
 */
 std::vector<Edge> kruskal_mst(std::vector<Edge>& edges, int N) {
     sort(edges.begin(), edges.end(), compare_weight);
-    union_find uf(N);
+    UnionFind uf(N);
     std::vector<Edge> mst;
 
     for (const auto& e : edges) {

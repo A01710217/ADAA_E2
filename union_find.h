@@ -25,7 +25,7 @@
 /**
  * @brief Clase que implementa la estructura de datos Union-Find.
  */
-class union_find {
+class UnionFind {
 private:
     /**
      * @brief Vector que almacena el padre de un conjunto.
@@ -37,7 +37,7 @@ public:
      * 
      * @param size Tamaño de la estructura.
      */
-    union_find(int);
+    UnionFind(int);
 
     /**
      * @brief Encuentra el padre de un conjunto.
@@ -56,17 +56,17 @@ public:
     void UnionSets(int s1, int s2);
 };
 
-union_find::union_find(int size) : parent(size), rank(size, 0) {
+UnionFind::UnionFind(int size) : parent(size), rank(size, 0) {
     for (int i = 0; i < size; ++i) parent[i] = i;
 }
 
-int union_find::FindSet(int s) {
+int UnionFind::FindSet(int s) {
     if (s != parent[s])
         parent[s] = FindSet(parent[s]);
     return parent[s];
 }
 
-void union_find::UnionSets(int s1, int s2) {
+void UnionFind::UnionSets(int s1, int s2) {
     int root1 = FindSet(s1);
     int root2 = FindSet(s2);
     if (root1 != root2) {
