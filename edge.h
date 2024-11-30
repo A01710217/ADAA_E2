@@ -1,25 +1,17 @@
 /*
- * Archivo: edge.h
- * Autor: Monica Soberon Zubia
- * Descripcion: Definicion de una clase para representar una arista en un grafo ponderado.
- * Fecha: 2024
+ * File: edge.h
+ * Project: Integradora_2
+ * Author: Monica Soberon Zubia
+ * Description: Defines a class to represent an edge in a weighted graph.
  * Version: 1.1
- * 
- * Este archivo define la clase Edge, que representa una arista en un grafo ponderado.
- * 
- * Atributos:
- * - src: Nodo de origen de la arista.
- * - dest: Nodo de destino de la arista.
- * - weight: Peso de la arista.
- * 
- * Metodos:
- * - Constructor que inicializa los atributos de la clase.
- * 
- * Complejidad:
- * - Todas las operaciones de esta clase tienen una complejidad O(1).
- * 
- * Copyright (c) 2024, Monica Soberon Zubia
- * Todos los derechos reservados.
+ * Date: 2024
+ *
+ * Copyright (c) 2024 Monica Soberon Zubia
+ * All rights reserved.
+ *
+ * Redistribution, modification, or use of this file is allowed only
+ * under explicit written permission from the author. Unauthorized
+ * use is strictly prohibited.
  */
 
 #ifndef EDGE_H
