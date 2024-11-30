@@ -6,12 +6,15 @@
 El repositorio está estructurado en tres ramas principales:
 
 1. `main`
+
 Contiene el proyecto finalizado y es donde se ejecuta el escaneo de calidad del código con SonarQube a través de GitHub Actions. Los resultados deben aprobarse con 0 issues.
 
 2. `develop`
+
 Usada para trabajar en actualizaciones y nuevas características antes de integrar los cambios en la rama principal.
 
 3. `unitTesting`
+
 Dedicada a realizar pruebas unitarias automatizadas, con ayuda de CMaker para asegurar una correcta ejecución del código.
 
 ### Estructura del Proyecto
@@ -58,3 +61,10 @@ Dedicada a realizar pruebas unitarias automatizadas, con ayuda de CMaker para as
 - Encuentra la central más cercana geográficamente a una nueva contratación.
 - Entrada: Lista de coordenadas de las centrales y puntos de ubicación de nuevas casas.
 - Salida: Lista de polígonos indicando las áreas de influencia de cada central.
+
+### Integrantes
+Mónica Soberón Zubía 
+
+Carlos Anaya Ruiz 
+
+Axel Camacho Villafuerte
