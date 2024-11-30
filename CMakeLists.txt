@@ -18,13 +18,13 @@ include_directories(${CMAKE_SOURCE_DIR})
 # Archivos fuente principales
 set(SOURCES
     main.cpp
-    edge.h
-    unionFind.h
-    punto.h
     central.h
+    edge.h
+    ford_fulkerson.h
     kruskal.h
+    punto.h
     tsp.h
-    fordFulkerson.h
+    unionFind.h
 )
 
 # Crear el ejecutable para tu código principal

@@ -12,7 +12,7 @@
  * 
  * Para compilar el programa, se debe ejecutar el comando "g++ main.cpp -o main.exe" en la terminal.
  * Para ejecutar el programa, se debe ejecutar el comando "./main.exe" en la terminal.
- */
+*/
 
 #include <iostream>
 #include <vector>
