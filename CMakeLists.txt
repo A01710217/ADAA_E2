@@ -24,7 +24,7 @@ set(SOURCES
     kruskal.h
     punto.h
     tsp.h
-    unionFind.h
+    union_find.h
 )
 
 # Crear el ejecutable para tu código principal
