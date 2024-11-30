@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "tsp.h"
 
+
 TEST(TSPTest, CostTest) {
     std::vector<std::vector<int>> distancias = {
         {0, 10, 15},

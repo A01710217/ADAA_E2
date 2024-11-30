@@ -2,6 +2,7 @@
 #include "central.h"
 #include "punto.h"
 
+
 TEST(CentralMasCercanaTest, BasicTest) {
     std::vector<Punto> centrales = {Punto(200, 500), Punto(300, 100), Punto(450, 150), Punto(520, 480)};
     Punto nuevaCentral(400, 300);

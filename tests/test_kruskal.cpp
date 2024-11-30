@@ -2,6 +2,7 @@
 #include "kruskal.h"
 #include "edge.h"
 
+
 TEST(KruskalTest, MSTTest) {
     std::vector<Edge> aristas = {
         Edge(0, 1, 10),
