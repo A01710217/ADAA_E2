@@ -1,22 +1,21 @@
 /*
- * Archivo: central.h
- * Autor: Axel Camacho Villafuerte
- * Descripción: Este archivo contiene la implementación de funciones para encontrar 
- *              la central más cercana a una colonia, utilizando las coordenadas 
- *              proporcionadas.
- * Fecha: 2024
- * Versión: 1.1
+ * SonarQube, open source software quality management tool.
+ * Copyright (C) 2008-2013 SonarSource
+ * http://github.com/SonarOpenCommunity/sonar-cxx
  *
- * Detalles:
- * - Define la función `encontrar_central_cercana`, que calcula el índice de la
- *   central más cercana a una colonia usando coordenadas cartesianas.
- * - Incluye verificaciones para manejar errores como vectores vacíos.
- * 
- * Complejidad:
- * - Función principal: O(n), donde n es el número de centrales.
- * 
- * Dependencias:
- * - Requiere la clase `Punto` definida en "punto.h".
+ * SonarQube is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * SonarQube is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
 #ifndef CENTRAL_H
