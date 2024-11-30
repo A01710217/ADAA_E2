@@ -46,7 +46,7 @@
 //Importar la clase Edge
 #include "edge.h"
 //Importar la clase UnionFind
-#include "unionFind.h"
+#include "union_find.h"
 
 //Importar la función para calcular el flujo máximo
 #include "ford_fulkerson.h"

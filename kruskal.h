@@ -28,7 +28,7 @@
 #include <vector>
 #include <algorithm>
 #include "edge.h"
-#include "unionFind.h"
+#include "union_find.h"
 
 /**
  * @brief Comparador para ordenar aristas por peso.
@@ -54,7 +54,7 @@ bool compare_weight(const Edge& e1, const Edge& e2) {
 */
 std::vector<Edge> kruskal_mst(std::vector<Edge>& edges, int N) {
     sort(edges.begin(), edges.end(), compare_weight);
-    UnionFind uf(N);
+    union_find uf(N);
     std::vector<Edge> mst;
 
     for (const auto& e : edges) {

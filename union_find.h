@@ -17,15 +17,15 @@
  * - Utiliza la biblioteca estándar `<vector>`.
  */
 
-#ifndef UNIONFIND_H
-#define UNIONFIND_H
+#ifndef UNION_FIND_H
+#define UNION_FIND_H
 
 #include <vector>
 
 /**
  * @brief Clase que implementa la estructura de datos Union-Find.
  */
-class UnionFind {
+class union_find {
 private:
     /**
      * @brief Vector que almacena el padre de un conjunto.
@@ -37,7 +37,7 @@ public:
      * 
      * @param size Tamaño de la estructura.
      */
-    UnionFind(int);
+    union_find(int);
 
     /**
      * @brief Encuentra el padre de un conjunto.
@@ -56,17 +56,17 @@ public:
     void UnionSets(int s1, int s2);
 };
 
-UnionFind::UnionFind(int size) : parent(size), rank(size, 0) {
+union_find::union_find(int size) : parent(size), rank(size, 0) {
     for (int i = 0; i < size; ++i) parent[i] = i;
 }
 
-int UnionFind::FindSet(int s) {
+int union_find::FindSet(int s) {
     if (s != parent[s])
         parent[s] = FindSet(parent[s]);
     return parent[s];
 }
 
-void UnionFind::UnionSets(int s1, int s2) {
+void union_find::UnionSets(int s1, int s2) {
     int root1 = FindSet(s1);
     int root2 = FindSet(s2);
     if (root1 != root2) {
