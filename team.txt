@@ -7,7 +7,8 @@ Link Github:
     - https://github.com/A01710217/ADAA_E2
 
 Mónica Soberón Zubía
-
+Parte 2: Ruta más corta para el repartidor (Traveling Salesman Problem - TSP)
+Apoyo debugging pruebas unitarias
 
 Carlos Anaya Ruiz
 
