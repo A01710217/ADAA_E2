@@ -1,6 +1,6 @@
 /*
  * Archivo: kruskal.h
- * Autor: Carlos Anaya Ruiz
+ * Autor: Monica Soberon Zubia
  * Descripción: Implementación del algoritmo de Kruskal para encontrar el árbol de expansión mínima (MST) de un grafo.
  * Fecha: 2024
  * Versión: 1.1

@@ -1,0 +1,17 @@
+Integrantes del equipo:
+    - Mónica Soberón Zubía - A01254488
+    - Carlos Anaya Ruiz - A01662464
+    - Axel Camacho Villafuerte - A01710217
+
+Link Github:
+    - https://github.com/A01710217/ADAA_E2
+
+Mónica Soberón Zubía
+
+
+Carlos Anaya Ruiz
+
+
+Axel Camacho Villafuerte
+Implementar búsqueda lineal que determina la central más cercana a una nueva contratación, considerando la ubicación geográfica de varias centrales y colonias.
+Pruebas unitarias con CMake
