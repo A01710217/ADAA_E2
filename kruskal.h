@@ -1,3 +1,4 @@
+
 /*
  * Archivo: kruskal.h
  * Autor: Monica Soberon Zubia

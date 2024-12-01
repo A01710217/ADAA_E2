@@ -1,3 +1,4 @@
+
 /*
  * Archivo: central.h
  * Autor: Axel Camacho Villafuerte
