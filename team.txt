@@ -11,7 +11,8 @@ Parte 2: Ruta más corta para el repartidor (Traveling Salesman Problem - TSP)
 Apoyo debugging pruebas unitarias
 
 Carlos Anaya Ruiz
-
+Parte 1 y 3: 
+Desarrollé el algoritmo de Kruskal para encontrar la conexión óptima de fibra óptica entre colonias y utilicé Ford-Fulkerson para calcular el flujo máximo de datos en una red.
 
 Axel Camacho Villafuerte
 Implementar búsqueda lineal que determina la central más cercana a una nueva contratación, considerando la ubicación geográfica de varias centrales y colonias.
